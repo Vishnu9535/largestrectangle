@@ -12,10 +12,8 @@ matrix_example = {
     ]
 }
 
-# Send a POST request
 response = requests.post(url, json=matrix_example)
 
-# Check if the response contains valid JSON
 if response.headers["content-type"] == "application/json":
     try:
         json_response = response.json()

@@ -7,7 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import uvicorn
 
-from final import largest_rectangle
+from largestrectangle import largest_rectangle
 
 app = FastAPI()
 
@@ -20,7 +20,7 @@ class Log(Base):
     __tablename__ = 'logs'
 
     id = Column(Integer, primary_key=True, index=True)
-    matrix = Column(String)  # Add this line
+    matrix = Column(String) 
     max_number = Column(Integer)
     max_area = Column(Integer)
     start_time = Column(DateTime)
@@ -62,17 +62,13 @@ def log_request_and_response(matrix, max_number, max_area, start_time, end_time)
         db.add(log_entry)
         db.commit()
     except Exception as e:
-        print("Error inserting into database:", e)
+        print("Error inserting in database:", e)
         db.rollback()
     finally:
         db.close()
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the FastAPI application"}
+    return {"Welcome to the application"}
 
-@app.get("/favicon.ico")
-def get_favicon():
-    # You can return a default favicon or an empty response
-    return ""
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
