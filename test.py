@@ -17,8 +17,8 @@ response = requests.post(url, json=matrix_example)
 if response.headers["content-type"] == "application/json":
     try:
         json_response = response.json()
-        print("Response JSON:", json_response)
+        print("response in JSON", json_response)
     except requests.exceptions.JSONDecodeError as e:
-        print("Error decoding JSON:", e)
+        print("error in JSON:", e)
 else:
-    print("Non-JSON response:", response.text)
+    print("not a JSON response:", response.text)
