@@ -19,6 +19,11 @@ def find_unique_number(used_numbers, matrix):
     return number
 
 def largest_rectangle(matrix: List[List[int]]) -> tuple:
+    """
+    :param matrix: A 2D matrix of integers (1 <= len(matrix),
+    len(matrix[0]) <= 100)
+    :return: The area of the largest rectangle formed by similar numbers
+    """
     matrix = add_unique_numbers(matrix)
     if not matrix or not matrix[0]:
         return None, 0
