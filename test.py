@@ -22,3 +22,5 @@ if response.headers["content-type"] == "application/json":
         print("error in JSON:", e)
 else:
     print("not a JSON response:", response.text)
+
+
